@@ -1,0 +1,9 @@
+<div class="item-list-container">
+  <h2>Items List</h2>
+  <ul>
+    <li *ngFor="let item of items"  [attr.data-unique-attribute-section]="'itemsList'" [attr.data-unique-attribute-item-name]="item.name" [attr.data-unique-attribute-item-id]="item.id">
+      {{ item.name }}
+      <button (click)="onItemUpdateClick(item.id)">Update</button>
+    </li>
+  </ul>
+</div>

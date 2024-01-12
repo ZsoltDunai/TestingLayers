@@ -1,0 +1,1 @@
+D:\VS\TestApplication\testapplication.client\obj\Debug\testapplication.client.esproj.CoreCompileInputs.cache

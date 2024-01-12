@@ -1,0 +1,26 @@
+<div class="main-page-container">
+  <h2  [attr.data-unique-attribute-title]="'title'">Welcome to the Main Page</h2>
+  <button [attr.data-unique-attribute-new-item]="'AddNewItem'" (click)="showNewItemForm()">Add New Item</button>
+
+  <div *ngIf="showForm">
+    <h2>Add New Item</h2>
+    <form (ngSubmit)="createNewItem()" #newItemForm="ngForm">
+      <label for="itemName">Item Name:</label>
+      <input type="text" id="itemName" name="itemName" [(ngModel)]="newItemName" required>
+      <button [attr.data-unique-attribute-create-item]="'CreateItem'" type="submit" [disabled]="items.length >= 5">Create Item</button>
+    </form>
+  </div>
+
+  <app-item-list [items]="items"
+                 (selectItemForUpdate)="selectItemForUpdate($event)"></app-item-list>
+
+  <div *ngIf="selectedItemId !== null">
+    <h2>Update Item</h2>
+    <form (ngSubmit)="updateItem()" #updateItemForm="ngForm">
+      <label for="updateItemName">New Item Name:</label>
+      <input type="text" id="updateItemName" name="updateItemName" [(ngModel)]="updateItemName" required>
+
+      <button [attr.data-unique-attribute-update-item]="'UpdateItem'" type="submit">Update Item</button>
+    </form>
+  </div>
+</div>
